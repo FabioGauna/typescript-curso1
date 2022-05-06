@@ -12,14 +12,15 @@ export class NegociacaoController {
     }
 
     adiciona(){
+        const negociacao = this.criaNegociacao();
+        console.log(negociacao);        
+    }
+
+    criaNegociacao(): Negociacao {
         const exp = /-/g;
         const data = new Date(this.inputData.value.replace(exp, ','));;
         const quantidade = parseInt(this.inputQuantidade.value);
         const valor = parseFloat(this.inputValor.value);
-
-        const negociacao = new Negociacao(data, quantidade, valor);
-
-        console.log(negociacao);
-        
+        return new Negociacao(data, quantidade, valor);
     }
 }
